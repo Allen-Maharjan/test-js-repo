@@ -1,21 +1,6 @@
 {
-  "name": "test-js-repo",
+  "name": "dummy-project",
   "version": "1.0.0",
-  "description": "This is test Javascript repo",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Test is successful \" && exit 0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ashokkasti/test-js-repo.git"
-  },
-  "author": "Ashok Kasti",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ashokkasti/test-js-repo/issues"
-  },
-  "homepage": "https://github.com/ashokkasti/test-js-repo#readme",
   "optionalDependencies": {
     "no-case": "==2.3.2",
     "throat": "==6.0.1",
