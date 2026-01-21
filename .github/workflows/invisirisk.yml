@@ -1,4 +1,4 @@
-name: JS-test-two
+name: JS-test-three
 
 on:
   workflow_dispatch:
