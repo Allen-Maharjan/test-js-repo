@@ -1,4 +1,4 @@
-name: JS-test
+name: JS-test-1
 
 on:
   workflow_dispatch:
