@@ -1,0 +1,17 @@
+name: Invisirisk Scan
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run Invisirisk Scan
+        run: |
+          echo "Running scan..."
+          # Add your scan command here
