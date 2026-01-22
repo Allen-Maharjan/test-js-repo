@@ -1,4 +1,4 @@
-name: Build NPM Package
+name: Build NPM Package six seven
 on:
   push:
     branches: [ main ]
