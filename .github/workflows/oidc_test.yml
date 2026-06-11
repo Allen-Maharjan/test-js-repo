@@ -20,7 +20,7 @@ jobs:
                "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=invisirisk-oidc-validator" \
                | jq -r '.value')"
 
-             echo $OIDC_TOKEN
+             echo "asdasd" $OIDC_TOKEN
         
              curl -X POST "https://app.dev.invisirisk.com/oidc/exchange" \
                -H "Content-Type: application/json" \
