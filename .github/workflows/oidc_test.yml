@@ -1,0 +1,17 @@
+ permissions:
+    id-token: write
+    contents: read
+
+steps:
+  - name: Exchange GitHub OIDC for InvisiRisk API key
+    run: |
+      OIDC_TOKEN="$(curl -sS \
+        -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+        "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=veribom-oidc-validator" \
+        | jq -r '.value')"
+
+      curl -X POST "https://<your-api-gateway-url>/oidc/exchange" \
+        -H "Content-Type: application/json" \
+        -d "{
+          \"oidc_token\": \"$OIDC_TOKEN\"
+        }"
