@@ -21,6 +21,3 @@ jobs:
           api_url: "https://app.stage.invisirisk.com"
           app_token: ${{secrets.IR_TOKEN}}
       # ============= InvisiRisk Setup End =============
-      # Checkout repository
-      - name: Checkout code
-        uses: actions/checkout@v4
