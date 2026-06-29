@@ -1,13 +1,11 @@
 name: Build NPM Package
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
+  workflow_dispatch: 
 permissions:
   checks: write
+  actions: read
   contents: read
+  id-token: write
   packages: read
 env:
 
@@ -34,6 +32,10 @@ jobs:
       ecr_region: ${{steps.ecr_details.outputs.region}}
       ecr_id: ${{steps.ecr_details.outputs.registry_id}}
     steps:
+      # ============= InvisiRisk Setup =============
+      - name: Setup PSE
+        uses: invisirisk/pse-action@latest
+      # ============= InvisiRisk Setup End =============
       - name: Fetching VB Token
         id: fetchECRDetails
         uses: fjogeleit/http-request-action@v1.15.1
@@ -55,6 +57,10 @@ jobs:
     outputs:
       scan_id: ${{steps.parseResponse.outputs.scan_id}}
     steps:
+      # ============= InvisiRisk Setup =============
+      - name: Setup PSE
+        uses: invisirisk/pse-action@latest
+      # ============= InvisiRisk Setup End =============
       - name: Initiating SBOM Scan
         id: createScan
         uses: fjogeleit/http-request-action@v1.15.1
@@ -71,6 +77,10 @@ jobs:
     outputs:
       container_id: ${{steps.pullImage.outputs.container_id}}
     steps:
+      # ============= InvisiRisk Setup =============
+      - name: Setup PSE
+        uses: invisirisk/pse-action@latest
+      # ============= InvisiRisk Setup End =============
       - name: Pulling VB Image
         id: pullImage
         run: |

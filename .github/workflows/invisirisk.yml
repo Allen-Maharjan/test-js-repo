@@ -1,7 +1,13 @@
-name: JS-test
+name: JS-test-two
 
 on:
   workflow_dispatch:
+
+permissions:
+  checks: write
+  actions: read
+  contents: read
+  id-token: write
 
 jobs:
   build-and-deploy:
@@ -9,23 +15,9 @@ jobs:
     name: Build Angular Project and Run PSE
 
     steps:
-      # Checkout repository
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      # Setup Node.js
-      - name: Use Node.js
-        uses: actions/setup-node@v3
+      # ============= InvisiRisk Setup =============
+      - name: Setup PSE
+        uses: invisirisk/pse-action@develop
         with:
-          node-version: "22.11.0"
-
-      # Install global tools
-      - name: Install global tools
-        run: |
-          npm install -g @angular/cli
-          npm install -g yarn
-          npm install -g gulp-cli
-
-      # Install project dependencies
-      - name: Install dependencies
-        run: yarn install
+            api_url: "https://app.dev.invisirisk.com"
+      # ============= InvisiRisk Setup End =============
